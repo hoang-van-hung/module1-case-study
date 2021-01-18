@@ -3,42 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Wallet</title>
-
 </head>
 <body>
-<div>
+<div class="walet">
     <h2>Wallet</h2> <br>
     Total Money: <p id="total"></p>
     Spent Money: <p id="spent"></p>
     Rest of Money: <p id="rest"></p>
 </div>
-<form>
+<form class="form">
     <fieldset>
-        <legend>List Detail</legend>
+        <legend>Input the information</legend>
         <input type="date" id="list-date" placeholder="Enter the date">
         <input type="text" id="list-name" placeholder="Enter the name">
         <input type="text" id="list-amount" placeholder="Enter the amount">
         <input type="text" id="list-note" placeholder="Enter the note">
-        <button type="button" id="list-add" onclick="getAddList()">Add list</button>
+        <button type="button" id="list-add" onclick="addList()">Add list</button>
     </fieldset>
 </form>
+<br>
 <table id="list" border="1px"></table>
+
+<script src="Object.js"></script>
 <script src="main.js"></script>
 </body>
 </html>
 <script>
-    let total1= new Wallet;
-    total1.total =50000;
-    document.getElementById('total').innerHTML =total1.total;
-    total1.spent=20000;
-    total1.spent=document.getElementById('spent').innerHTML=total1.spent;
-    function getRest() {
-        document.getElementById('rest').innerHTML= this.rest;
-        console.log(this.rest);
-    }
-let goToMarket = new List(new Date(),"di cho",3000,"mua bun");
-function AddItem() {
-    list.push(item);
-    displayList();
-}
+
+
 </script>
+
