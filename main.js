@@ -2,7 +2,7 @@
 let list =loadData();
 function saveData() {
     localStorage.setItem('item',JSON.stringify(list));
-    localStorage.setItem('amount',JSON.stringify(wallet));
+    // localStorage.setItem('amount',JSON.stringify(wallet));
 }
 function loadData() {
     if (localStorage.hasOwnProperty('item')){
@@ -11,23 +11,16 @@ function loadData() {
     }else {
         return [];
     }
-}
-
-/*function saveData() {
-    localStorage.setItem('amount',JSON.stringify(wallet1));
-}
-function loadData() {
     if (localStorage.hasOwnProperty('amount')){
-        let data= JSON.parse(localStorage.getItem('amount'));
-        return data;
+        let data2 =JSON.parse(localStorage.getItem('amount'));
+        return data2;
     }else {
         return [];
     }
 }
-let wallet =loadData()*/
-let wallet1= new Wallet();
-wallet1.addTotal(500000);
 
+let wallet = new Wallet();
+wallet.addTotal(500000);
 function displayList(){
     let str ="<tr>" +
         "<th>STT</th>" +
@@ -40,23 +33,46 @@ function displayList(){
     for (let i = 0; i < list.length; i++) {
        str += `<tr>
                 <td>${i+1}</td>
-                <td>${list[i][1]}</td>
-                <td>${list[i][2]}</td>
-                <td>${list[i][3]}</td>
-                <td>${list[i][4]}</td>
+                <td>${list[i].date}</td>
+                <td>${list[i].name}</td>
+                <td>${list[i].amount}</td>
+                <td>${list[i].note}</td>
                 <td><button id="UpdateList" onclick="updateItem(${i})">Update</button></td>
                 <td><button id="DeleteList" onclick="deleteItem(${i})">Delete</button></td>
                 </tr>`;
-    }
-    document.getElementById('list').innerHTML =str;
-    document.getElementById('total').innerHTML=wallet1.total;
-    document.getElementById('rest').innerHTML=wallet1.current;
-    document.getElementById('spent').innerHTML = parseInt(wallet1.spent);
 
+
+    }
+
+    let total = 0;
+
+    for (let j = 0; j < list.length; j++) {
+        total += +list[j].amount;
+        // wallet.spendMoney(parseInt(list[j].amount));
+    }
+
+    // console.log(wallet.spent);
+
+
+
+    /*for (let j = 0; j < list.length; j++) {
+        spent +=list[j][3];
+        console.log(spent);
+    }*/
+    document.getElementById('list').innerHTML =str;
+    document.getElementById('total').innerHTML=wallet.total;
+    document.getElementById('rest').innerHTML=wallet.current;
+    document.getElementById('spent').innerHTML = total + '';
     saveData();
-    // totalWallet();
 }
 displayList();
+
+/*function wallet() {
+    for (i=0;i<list.length;i++){
+        let a=wallet.total;
+        let b=
+    }
+}*/
 
 function addList() {
     let date= document.getElementById('list-date').value;
@@ -65,9 +81,15 @@ function addList() {
     let note= document.getElementById('list-note').value;
 
         if (date !="" &&name !=""&& amount !=""){
-            let item =[ ,date,name,amount,note];
+            //let item =[date,name,amount,note];
+            let item = {
+                date: date,
+                name: name,
+                amount: amount,
+                note: note
+            }
+            console.log(item)
             list.push(item);
-            addSpend(amount)
             displayList();
             resetInput();
         }else {
@@ -94,17 +116,6 @@ function resetInput() {
     document.getElementById('list-amount').value ="";
     document.getElementById('list-note').value ="";
 }
-/*function totalWallet() {
-    let totalSpent=0;
-    let restMoney= 0;
 
-    for (let i = 0; i < list.length; i++) {
-        totalSpent += parseInt(list[i][3]);
-        document.getElementById('rest').innerHTML=restMoney;
-    }*/
-function addSpend(money){
-    parseInt(wallet1.spendMoney(money));
-    saveData();
-}
 
 

@@ -14,7 +14,6 @@ class Wallet {
     }
     spendMoney(amount){
         this.current -= amount;
-        this.spent +=amount;
-
+        this.spent += amount;
     }
 }
