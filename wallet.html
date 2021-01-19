@@ -7,16 +7,19 @@
 <body>
 <div class="walet">
     <h2>Wallet</h2> <br>
-    Total Money: <p id="total"></p>
+     My Total Money: <p id="total"></p>
     Spent Money: <p id="spent"></p>
-    Rest of Money: <p id="rest"></p>
+    Rest of My Money: <p id="rest"></p>
+    Add Money to My Wallet <br>
+    <input type="number" id="add-money">
+    <button onclick="sum()">Add Money</button>
 </div>
 <form class="form">
     <fieldset>
         <legend>Input the information</legend>
         <input type="date" id="list-date" placeholder="Enter the date">
         <input type="text" id="list-name" placeholder="Enter the name">
-        <input type="text" id="list-amount" placeholder="Enter the amount">
+        <input type="number" id="list-amount" placeholder="Enter the amount">
         <input type="text" id="list-note" placeholder="Enter the note">
         <button type="button" id="list-add" onclick="addList()">Add list</button>
     </fieldset>

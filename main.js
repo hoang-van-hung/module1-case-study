@@ -21,6 +21,22 @@ function loadData() {
 
 let wallet = new Wallet();
 wallet.addTotal(500000);
+
+function sum() {
+    let A=document.getElementById('add-money').value;
+    if (A != ""){
+        let B = parseInt(A)+wallet.total;
+        document.getElementById('total').innerHTML=B;
+        wallet.total =B;
+        document.getElementById('add-money').value="";
+        console.log(wallet.total);
+    }else {
+        alert("Please input the number");
+    }
+    displayList();
+
+}
+
 function displayList(){
     let str ="<tr>" +
         "<th>STT</th>" +
@@ -44,35 +60,35 @@ function displayList(){
 
     }
 
-    let total = 0;
 
+
+    let totalSpent = 0;
+    let current=0;
+    //lam sao de hien thi current <0???
     for (let j = 0; j < list.length; j++) {
-        total += +list[j].amount;
+        totalSpent += +list[j].amount;
+
         // wallet.spendMoney(parseInt(list[j].amount));
     }
+    if (wallet.total >totalSpent){
+        current =wallet.total-totalSpent;
+    }else {
+        alert('You need to save your money!!!!');
+    }
 
-    // console.log(wallet.spent);
 
-
-
-    /*for (let j = 0; j < list.length; j++) {
-        spent +=list[j][3];
-        console.log(spent);
-    }*/
     document.getElementById('list').innerHTML =str;
-    document.getElementById('total').innerHTML=wallet.total;
-    document.getElementById('rest').innerHTML=wallet.current;
-    document.getElementById('spent').innerHTML = total + '';
+    document.getElementById('total').innerHTML =wallet.total;
+    //lam sao de luu duoc wallet.total sau khi them tien???
+    document.getElementById('rest').innerHTML=current;
+    document.getElementById('spent').innerHTML = totalSpent;
+
+
     saveData();
 }
 displayList();
 
-/*function wallet() {
-    for (i=0;i<list.length;i++){
-        let a=wallet.total;
-        let b=
-    }
-}*/
+
 
 function addList() {
     let date= document.getElementById('list-date').value;
@@ -88,7 +104,6 @@ function addList() {
                 amount: amount,
                 note: note
             }
-            console.log(item)
             list.push(item);
             displayList();
             resetInput();
@@ -101,11 +116,17 @@ function deleteItem(index) {
     displayList();
 }
 function updateItem(index){
-    let newDate= prompt("Input new date: ",list[index][1]);
-    let newName= prompt("Input new name: ",list[index][2]);
-    let newAmount= prompt("Input new amount: ",list[index][3]);
-    let newNote= prompt("Input new note: ",list[index][4]);
-    let item=[newDate, , newName,newAmount,newNote];
+    let newDate= prompt("Input new date: ",list[index].date);
+
+    let newName= prompt("Input new name: ",list[index].name);
+    let newAmount= prompt("Input new amount: ",list[index].amount);
+    let newNote= prompt("Input new note: ",list[index].note);
+    let item={
+        date:newDate,
+        name:newName,
+        amount: newAmount,
+        note :newNote
+    }
     list[index]= item;
     displayList();
 }
