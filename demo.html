@@ -7,14 +7,29 @@
 <body>
 <p id="name"></p>
 <input type="number" id="input">
-
+<button onclick="show()">show</button>
+<p id="show">Tong : </p>
+<a href="http://google.com" className="button">Go to Google</a>
 </body>
 </html>
 <script>
-     {
-       let A= document.getElementById('input').value ;
-       let B=500;
-       let C=parseInt(A)+B;
-         document.getElementById('name').innerHTML=C;
+    function show() {
+        let A= document.getElementById('input').value ;
+        console.log(A);
+        let B=500;
+        let C=parseInt(A)+B;
+        document.getElementById('show').innerHTML="Tong : "+C;
     }
+    function saveData() {
+        localStorage.setItem('item',JSON.stringify(list));
+    }
+    function loadData() {
+        if (localStorage.hasOwnProperty('item')){
+            let data= JSON.parse(localStorage.getItem('item'));
+            return data;
+        }else {
+            return [];
+        }
+    }
+
 </script>

@@ -13,7 +13,7 @@ class Wallet {
         return this.current;
     }
     spendMoney(amount){
-        this.current -= amount;
+        // this.current -= amount;
         this.spent += amount;
     }
 }

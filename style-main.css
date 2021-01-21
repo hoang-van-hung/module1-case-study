@@ -1,10 +1,29 @@
 body {
     margin: 0;
     padding: 0;
-    background: url("https://images.foody.vn/res/g79/789638/prof/s1242x600/foody-upload-api-foody-mobile-hmn-jpg-181024164336.jpg");
     background-size: cover;
-    background-position: center;
+    height: 100%;
+    width: 100%;
+    background-image: url("https://vn-cs.com/data/data/anhpnh/2019/02/28/lieu-nhan-dinh-cua-ti-phu-novogratz-rang-thi-truong-crypto-co-dau-hieu-tim-thay-day-co-dung1.jpg");
 }
-form {
+.wallet {
+    width: 600px;
+    height: 250px;
+    /*background: #9f914f;*/
+    color: #fff;
+    box-sizing: border-box;
+
 
 }
+.wallet p{
+    display: inline-block;
+}
+.table {
+    color: #fff;
+    box-sizing: border-box;
+    height: 570px;
+    display: inline-block;
+}
+
+
+

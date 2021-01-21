@@ -3,29 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Wallet</title>
+
 </head>
 <body>
-<div class="walet">
-    <h2>Wallet</h2> <br>
-     My Total Money: <p id="total"></p>
-    Spent Money: <p id="spent"></p>
-    Rest of My Money: <p id="rest"></p>
-    Add Money to My Wallet <br>
+<div class="wallet">
+    <p>MY WALLET</p> <br>
+     My Total Money: <p id="total"></p> <br>
+    Spent Money: <p id="spent"></p> <br>
+    Rest of My Money: <p id="rest"></p> <br>
+    Add Money to My Wallet
     <input type="number" id="add-money">
     <button onclick="sum()">Add Money</button>
 </div>
-<form class="form">
+<div class="table">
+<form>
     <fieldset>
         <legend>Input the information</legend>
-        <input type="date" id="list-date" placeholder="Enter the date">
-        <input type="text" id="list-name" placeholder="Enter the name">
-        <input type="number" id="list-amount" placeholder="Enter the amount">
-        <input type="text" id="list-note" placeholder="Enter the note">
-        <button type="button" id="list-add" onclick="addList()">Add list</button>
+        <table>
+            <tr>
+                <td><input type="date" id="list-date" placeholder="Enter the date"></td>
+                <td><input type="text" id="list-name" placeholder="Enter the name"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><input type="number" id="list-amount" placeholder="Enter the amount"></td>
+                <td><input type="text" id="list-note" placeholder="Enter the note"></td>
+                <td><button type="button" id="list-add" onclick="addList()">Add list</button></td>
+            </tr>
+        </table>
     </fieldset>
 </form>
 <br>
 <table id="list" border="1px"></table>
+</div>
 
 <script src="Object.js"></script>
 <script src="main.js"></script>
@@ -34,4 +44,6 @@
 <script>
 
 </script>
+<link rel="stylesheet" href="style-main.css">
+
 

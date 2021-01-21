@@ -1,4 +1,3 @@
-
 let list =loadData();
 function saveData() {
     localStorage.setItem('item',JSON.stringify(list));
@@ -47,7 +46,7 @@ function displayList(){
         "<th colspan='2'>Action</th>" +
         "</tr>";
     for (let i = 0; i < list.length; i++) {
-       str += `<tr>
+        str += `<tr>
                 <td>${i+1}</td>
                 <td>${list[i].date}</td>
                 <td>${list[i].name}</td>
@@ -96,21 +95,21 @@ function addList() {
     let amount=document.getElementById('list-amount').value;
     let note= document.getElementById('list-note').value;
 
-        if (date !="" &&name !=""&& amount !=""){
-            //let item =[date,name,amount,note];
-            let item = {
-                date: date,
-                name: name,
-                amount: amount,
-                note: note
-            }
-            list.push(item);
-            displayList();
-            resetInput();
-        }else {
-            alert("please enter the infor !!!");
+    if (date !="" &&name !=""&& amount !=""){
+        //let item =[date,name,amount,note];
+        let item = {
+            date: date,
+            name: name,
+            amount: amount,
+            note: note
         }
+        list.push(item);
+        displayList();
+        resetInput();
+    }else {
+        alert("please enter the infor !!!");
     }
+}
 function deleteItem(index) {
     list.splice(index,1);
     displayList();
@@ -137,6 +136,3 @@ function resetInput() {
     document.getElementById('list-amount').value ="";
     document.getElementById('list-note').value ="";
 }
-
-
-
