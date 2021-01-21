@@ -3,20 +3,19 @@
 <title>Login Form Design</title>
 
 <body>
-    <div class="loginbox">
+<div class="loginbox">
     <img src="https://static2.yan.vn/YanNews/2167221/202003/dan-mang-du-trend-thiet-ke-avatar-du-kieu-day-mau-sac-tu-anh-mac-dinh-b0de2bad.jpg"
          class="avatar">
         <h1>Login Here</h1>
-        <form>
-            <p>Username</p>
-            <input type="text" id="userName" placeholder="Enter Username">
-            <p>Password</p>
-            <input type="password" id="passWord" placeholder="Enter Password">
-            <input type="submit" id="login" value="Login">
-            <a href="#">Lost your password?</a><br>
-            <a href="register-form.html">Don't have an account?</a>
-        </form>
-        
+    <form id="form_id" method="post" name="myform">
+        <label>User Name :</label>
+        <input type="text" id="username" placeholder="Enter Username">
+        <label>Password :</label>
+        <input type="password" id="password" placeholder="Enter Password">
+        <input type="button" value="Login" id="submit" onclick="login()"/>
+        <a href="#">Lost your password?</a><br>
+        <a href="register-form.html">Don't have an account?</a>
+    </form>
     </div>
 
 </body>
@@ -81,7 +80,7 @@
         color: #fff;
         font-size: 16px;
     }
-    .loginbox input[type="submit"]
+    .loginbox input[type="button"]
     {
         border: none;
         outline: none;

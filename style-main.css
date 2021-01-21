@@ -6,23 +6,27 @@ body {
     width: 100%;
     background-image: url("https://vn-cs.com/data/data/anhpnh/2019/02/28/lieu-nhan-dinh-cua-ti-phu-novogratz-rang-thi-truong-crypto-co-dau-hieu-tim-thay-day-co-dung1.jpg");
 }
+body button{
+    background-color: #caaf5e;
+}
 .wallet {
     width: 600px;
     height: 250px;
     /*background: #9f914f;*/
     color: #fff;
     box-sizing: border-box;
-
-
 }
 .wallet p{
     display: inline-block;
+    color: #c14444;
 }
+
 .table {
-    color: #fff;
+    font-size: 16px;
+    color: #efe9e9;
     box-sizing: border-box;
     height: 570px;
-    display: inline-block;
+    /*display: inline-block;*/
 }
 
 

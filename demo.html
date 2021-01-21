@@ -1,35 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Javascript Login Form Validation</title>
+    <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
-<p id="name"></p>
-<input type="number" id="input">
-<button onclick="show()">show</button>
-<p id="show">Tong : </p>
-<a href="http://google.com" className="button">Go to Google</a>
+<div class="container">
+    <div class="main">
+        <h2>Javascript Login Form Validation</h2>
+        <form id="form_id" method="post" name="myform">
+            <label>User Name :</label>
+            <input type="text" name="username" id="username"/>
+            <label>Password :</label>
+            <input type="password" name="password" id="password"/>
+            <input type="button" value="Login" id="submit" onclick="validate()"/>
+        </form>
+    </div>
+</div>
 </body>
 </html>
 <script>
-    function show() {
-        let A= document.getElementById('input').value ;
-        console.log(A);
-        let B=500;
-        let C=parseInt(A)+B;
-        document.getElementById('show').innerHTML="Tong : "+C;
-    }
-    function saveData() {
-        localStorage.setItem('item',JSON.stringify(list));
-    }
-    function loadData() {
-        if (localStorage.hasOwnProperty('item')){
-            let data= JSON.parse(localStorage.getItem('item'));
-            return data;
+    var attempt = 3; // Variable to count number of attempts.
+    // Below function Executes on click of login button.
+    function validate(){
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        if ( username == "form" && password == "123"){
+            alert ("Login successfully");
+            window.location = "success.html"; // Redirecting to other page.
+            return false;
         }else {
-            return [];
+            alert("ohh no");
+            attempt --;// Decrementing by one.
+            alert("You have left "+attempt+" attempt;");
+// Disabling fields after 3 attempts.
+            if( attempt == 0){
+                document.getElementById("username").disabled = true;
+                document.getElementById("password").disabled = true;
+                document.getElementById("submit").disabled = true;
+                return false;
+            }
         }
     }
-
 </script>
